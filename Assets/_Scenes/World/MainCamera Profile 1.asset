@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6814443372983544997
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  lift:
+    m_OverrideState: 0
+    m_Value: {x: 0.98281926, y: 1, z: 0.9923932, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 0.9535802, y: 0.9810886, z: 1, w: -0.07060901}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.9861484, z: 0.9939261, w: -0.017652253}
+--- !u!114 &-4814136424450818542
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
+  m_Name: WhiteBalance
+  m_EditorClassIdentifier: 
+  active: 1
+  temperature:
+    m_OverrideState: 1
+    m_Value: -5
+  tint:
+    m_OverrideState: 1
+    m_Value: 75
+--- !u!114 &-3465520564045185434
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: 
+  active: 1
+  type:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.4
+  response:
+    m_OverrideState: 1
+    m_Value: 0.8
+  texture:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
+--- !u!114 &-75867207094245116
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: -0.1
+  xMultiplier:
+    m_OverrideState: 1
+    m_Value: 1
+  yMultiplier:
+    m_OverrideState: 1
+    m_Value: 1
+  center:
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  scale:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: MainCamera Profile 1
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 7620224070763178437}
+  - {fileID: 1380199615548577519}
+  - {fileID: 2857750930250709815}
+  - {fileID: -3465520564045185434}
+  - {fileID: -6814443372983544997}
+  - {fileID: -75867207094245116}
+  - {fileID: -4814136424450818542}
+--- !u!114 &1380199615548577519
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 1
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  center:
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.35
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.2
+  rounded:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &2857750930250709815
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1
+  gaussianStart:
+    m_OverrideState: 1
+    m_Value: 25
+  gaussianEnd:
+    m_OverrideState: 1
+    m_Value: 100
+  gaussianMaxRadius:
+    m_OverrideState: 1
+    m_Value: 1
+  highQualitySampling:
+    m_OverrideState: 1
+    m_Value: 0
+  focusDistance:
+    m_OverrideState: 1
+    m_Value: 10
+  aperture:
+    m_OverrideState: 1
+    m_Value: 5.6
+  focalLength:
+    m_OverrideState: 1
+    m_Value: 50
+  bladeCount:
+    m_OverrideState: 1
+    m_Value: 5
+  bladeCurvature:
+    m_OverrideState: 1
+    m_Value: 1
+  bladeRotation:
+    m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &7620224070763178437
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 0.9022054, y: 1, z: 0.92665404, w: -0.070609}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 0.9216437, y: 0.9852299, z: 1, w: -0.6001766}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 0.9479311, y: 0.8885236, z: 1, w: 0.28243604}
+  shadowsStart:
+    m_OverrideState: 1
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 1
+    m_Value: 0.3
+  highlightsStart:
+    m_OverrideState: 1
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 1
+    m_Value: 1
