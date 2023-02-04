@@ -9,6 +9,9 @@ public class PotatoGun : MonoBehaviour
     public ParticleSystem pesticide;
     public KeyCode pesticideToggleKey;
     bool isFiringPesticide;
+    public List<GameObject> tatoes;
+    public Transform tatoSpawnPoint;
+    public float launchSpeed;
 
 
     // Start is called before the first frame update
@@ -32,6 +35,11 @@ public class PotatoGun : MonoBehaviour
         {
             StopPesticide();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Firetato();
+        }
+
     }
 
     void ToggleFlashLight()
@@ -47,5 +55,13 @@ public class PotatoGun : MonoBehaviour
     void StopPesticide()
     {
         pesticide.Stop();
+    }
+
+    void Firetato() //Fires potato from launcher
+    {
+        //if key is pressed, spawn and then launch game object from point of origin
+        GameObject newTato = Instantiate(tatoes[0], tatoSpawnPoint.position, transform.rotation);
+        newTato.GetComponent<Rigidbody>().AddForce(Vector3.forward*launchSpeed);
+        Destroy(newTato,5);
     }
 }
