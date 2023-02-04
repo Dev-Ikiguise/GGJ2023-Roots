@@ -61,7 +61,7 @@ public class PotatoGun : MonoBehaviour
     {
         //if key is pressed, spawn and then launch game object from point of origin
         GameObject newTato = Instantiate(tatoes[0], tatoSpawnPoint.position, transform.rotation);
-        newTato.GetComponent<Rigidbody>().AddForce(Vector3.forward*launchSpeed);
+        newTato.GetComponent<Rigidbody>().AddForce(tatoSpawnPoint.forward * launchSpeed);
         Destroy(newTato,5);
     }
 }
