@@ -50,6 +50,14 @@ public class PotatoGun : MonoBehaviour
             SwitchPesticideUp();
         }
 
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+        {
+            SwitchPesticideUp();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+        {
+            SwitchPesticideDown();
+        }
     }
 
     void ToggleFlashLight()
