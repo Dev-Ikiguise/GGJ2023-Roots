@@ -29,7 +29,7 @@ public class PotatoGun : MonoBehaviour
         {
             ToggleFlashLight();
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             FirePesticide();
         }
@@ -85,7 +85,7 @@ public class PotatoGun : MonoBehaviour
     void SwitchPesticideUp()
     {
         //Stop previous pesticide
-        pesticides[pesticideIndex].gameObject.SetActive(false);
+        pesticides[pesticideIndex].Stop();
         //switches to new pesticide
         pesticideIndex++;
         if(pesticideIndex >= pesticides.Count)
@@ -93,17 +93,17 @@ public class PotatoGun : MonoBehaviour
             pesticideIndex = 0;
         }
         //starts new pesticide
-        pesticides[pesticideIndex].gameObject.SetActive(true);
+        //pesticides[pesticideIndex].Play();
     }
     void SwitchPesticideDown()
     {
         //same as SwitchPesticideUp but counting down
-        pesticides[pesticideIndex].gameObject.SetActive(false);
+        pesticides[pesticideIndex].Stop();
         pesticideIndex--;
         if (pesticideIndex < 0)
         {
             pesticideIndex = pesticides.Count - 1;
         }
-        pesticides[pesticideIndex].gameObject.SetActive(true);
+        //pesticides[pesticideIndex].gameObject.SetActive(true);
     }
 }
