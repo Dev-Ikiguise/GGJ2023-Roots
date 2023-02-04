@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PotatoGun : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class PotatoGun : MonoBehaviour
     bool isFiringPesticide;
     public List<GameObject> tatoes;
     public Transform tatoSpawnPoint;
+    public Transform pesticideChamber;
+    public float rotationAmount;
     public float launchSpeed;
     public int pesticideIndex;
-
 
 
     // Start is called before the first frame update
@@ -92,8 +94,9 @@ public class PotatoGun : MonoBehaviour
         {
             pesticideIndex = 0;
         }
-        //starts new pesticide
-        //pesticides[pesticideIndex].Play();
+
+        rotationAmount += 90;
+        pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
     }
     void SwitchPesticideDown()
     {
@@ -104,6 +107,7 @@ public class PotatoGun : MonoBehaviour
         {
             pesticideIndex = pesticides.Count - 1;
         }
-        //pesticides[pesticideIndex].gameObject.SetActive(true);
+        rotationAmount -= 90;
+        pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
     }
 }
