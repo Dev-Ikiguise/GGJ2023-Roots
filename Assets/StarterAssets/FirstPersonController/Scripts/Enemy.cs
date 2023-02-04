@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public float dist;
     public float leaptimer = 0;
     public float maxleaptimer = 7;
-    public bool grounded = true;
+    public bool isGrounded = true;
 
 
     
@@ -82,9 +82,11 @@ public class Enemy : MonoBehaviour
         rb.AddForce(jumpDirection * jumpForwardForce);
         rb.AddForce(jumpUpDirection * jumpUpForce);
 
-        //if ()
+
+
+        if (isGrounded == false)
         {
-       //     yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
         }
         
 
