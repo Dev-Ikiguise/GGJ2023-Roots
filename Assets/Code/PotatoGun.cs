@@ -6,6 +6,7 @@ using DG.Tweening;
 public class PotatoGun : MonoBehaviour
 {
     public Light flashlight;
+    public Light flashlightTwo;
     public KeyCode flashLightToggleKey;
     public List <ParticleSystem> pesticides;
     public KeyCode pesticideToggleKey;
@@ -20,6 +21,7 @@ public class PotatoGun : MonoBehaviour
     public AudioSource spraySound;
     public AudioSource ammoSwitchSound;
     public AudioSource potatoShootSound;
+    public AudioSource flashlightSound;
 
 
     // Start is called before the first frame update
@@ -70,7 +72,17 @@ public class PotatoGun : MonoBehaviour
     void ToggleFlashLight()
     {
         flashlight.enabled = !flashlight.enabled;
-        //TODO Play Brian's Flashlight sound;
+        flashlightTwo.enabled = !flashlightTwo.enabled;
+
+        if (flashlight.enabled)
+        {
+            flashlightSound.pitch = 0.9f;
+        }
+        else
+        {
+            flashlightSound.pitch = 1.02f;
+        }
+        flashlightSound.Play();
     }
     void FirePesticide()
     {
@@ -97,6 +109,7 @@ public class PotatoGun : MonoBehaviour
         GameObject newTato = Instantiate(tatoes[0], tatoSpawnPoint.position, transform.rotation);
         newTato.GetComponent<Rigidbody>().AddForce(tatoSpawnPoint.forward * launchSpeed);
         Destroy(newTato,5);
+        potatoShootSound.pitch = Random.Range(0.92f, 1.08f);
         potatoShootSound.Play();
     }
     void SwitchPesticideUp()
@@ -112,6 +125,7 @@ public class PotatoGun : MonoBehaviour
 
         rotationAmount += 90;
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
+        ammoSwitchSound.pitch = 0.95f;
         ammoSwitchSound.Play();
     }
     void SwitchPesticideDown()
@@ -125,6 +139,7 @@ public class PotatoGun : MonoBehaviour
         }
         rotationAmount -= 90;
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
+        ammoSwitchSound.pitch = 1.08f;
         ammoSwitchSound.Play();
     }
 }
