@@ -149,14 +149,15 @@ public class PotatoGun : MonoBehaviour
 
     void Recoil()
     {
+        //StopCoroutine("RecoilCo");
         StartCoroutine(RecoilCo());
     }
 
     private IEnumerator RecoilCo()
     {
-        float recoilDuration = .2f;
-        transform.DOLocalMoveZ(initalZPosition - .2f, recoilDuration, false);
+        float recoilDuration = .04f;
+        transform.DOLocalMoveZ(initalZPosition - .03f, recoilDuration, false);//.SetEase(Ease.InOutCirc);
         yield return new WaitForSeconds(recoilDuration);
-        transform.DOLocalMoveZ(initalZPosition, recoilDuration*2, false);
+        transform.DOLocalMoveZ(initalZPosition, recoilDuration * 2, false);//.SetEase(Ease.InOutQuad);
     }
 }
