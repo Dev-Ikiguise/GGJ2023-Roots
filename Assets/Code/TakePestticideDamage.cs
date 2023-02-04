@@ -8,9 +8,14 @@ public class TakePestticideDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //print(collision.gameObject.name);
-        health -= 1;
-        print(health);
+        if (collision.gameObject.GetComponent<Potato>())
+        {
+            health -= collision.gameObject.GetComponent<Potato>().damageToGive;
+        }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnParticleCollision(GameObject other)
