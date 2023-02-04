@@ -17008,7 +17008,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 94570bda693b0264d994aa8011bf53a1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e2f0c4be30096024b8189b46967d456c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -38907,7 +38907,7 @@ MonoBehaviour:
   tatoSpawnPoint: {fileID: 1462978234}
   pesticideChamber: {fileID: 2892267969112416075}
   rotationAmount: 0
-  launchSpeed: 500
+  launchSpeed: 800
   pesticideIndex: 0
   spraySound: {fileID: 799881631}
   ammoSwitchSound: {fileID: 1582611002}

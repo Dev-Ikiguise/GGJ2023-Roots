@@ -16,6 +16,7 @@ public class PotatoGun : MonoBehaviour
     public float rotationAmount;
     public float launchSpeed;
     public int pesticideIndex;
+    bool isPlayingSpraySound;
     public AudioSource spraySound;
     public AudioSource ammoSwitchSound;
     public AudioSource potatoShootSound;
@@ -25,6 +26,7 @@ public class PotatoGun : MonoBehaviour
     void Start()
     {
         pesticideIndex = 0;
+        isPlayingSpraySound = false;
     }
 
     // Update is called once per frame
@@ -72,13 +74,20 @@ public class PotatoGun : MonoBehaviour
     }
     void FirePesticide()
     {
+        if (!isPlayingSpraySound)
+        {
+            spraySound.Play();
+            isPlayingSpraySound = true;
+        }
         pesticides[pesticideIndex].Play();
-        spraySound.Play();
+
+        
     }
 
     void StopPesticide()
     {
         pesticides[pesticideIndex].Stop();
+        isPlayingSpraySound = false;
         spraySound.Stop();
     }
 
