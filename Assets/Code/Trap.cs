@@ -24,13 +24,29 @@ public class Trap : MonoBehaviour
     {
         //find what is hitting us, find rigid body, apply upwards force
 
+        Vector3 initialVelocity;
+
         print(other.gameObject.name);
 
         if (other.gameObject.GetComponent<NavMeshAgent>())
         {
             other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-            other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            
         }
-        other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * UpwardVelocity);
+        if (other.gameObject.GetComponent<Rigidbody>())
+        {
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+            float randX = Random.Range(-20, 20);
+            float randZ = Random.Range(-20, 20);
+            Vector3 randomVector3 = new Vector3(randX, randZ, randZ);
+
+            other.gameObject.GetComponent<Rigidbody>().AddForce((Vector3.up * UpwardVelocity) + randomVector3);
+            other.gameObject.GetComponent<Rigidbody>().AddTorque(randomVector3);
+        }
+        //if (other.gameObject.GetComponent<EnemyHealth>())
+        //{
+        //    other.gameObject.GetComponent<EnemyHealth>().HandleDeath();
+        //}
     }
 }

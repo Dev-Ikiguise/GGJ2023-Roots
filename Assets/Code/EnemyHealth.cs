@@ -48,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
         healthBar.fillAmount = (currentHealth / maxHealth) / 1;
     }
 
-    void HandleDeath()
+    public void HandleDeath()
     {
         Instantiate(Resources.Load("VegieSplode"), transform.position, transform.rotation);
         Destroy(healthUI);
