@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     private NavMeshAgent nma;
     public Transform position;
-    public float jumpForce = 500;
+    public float jumpUpForce = 500;
     public float jumpForwardForce = 200;
     public EnemyType enemyType;
     Vector3 enemyPosition;
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public float dist;
     public float leaptimer = 0;
     public float maxleaptimer = 7;
+    public bool grounded = true;
 
 
     
@@ -26,36 +27,76 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nma.SetDestination(position.position);
     }
 
     // Update is called once per frame
     void Update()
     {
         leaptimer = leaptimer + Time.deltaTime;
-        
-        nma.SetDestination(position.position);
+
+
+        if (nma.enabled)
+        {
+            nma.SetDestination(position.position);
+        }
         if (enemyType == EnemyType.Leaper)
         {
+            Rigidbody rb = GetComponent<Rigidbody>();
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerPosition = player.transform.position;
             dist = Vector3.Distance(playerPosition, transform.position);
 
-            if(dist <= howclose && leaptimer > maxleaptimer)
+            if (dist <= howclose && leaptimer >= maxleaptimer)
             {
-                Vector3 jumpDirection = (playerPosition - transform.position).normalized;
-                GetComponent<Rigidbody>().AddForce(jumpDirection * jumpForce);
-                nma.SetDestination(playerPosition);
                 leaptimer = 0;
+                StartCoroutine(NMADisable(.5f));
+                
+                
+                
             }
+
+
+        }
+
+        if (enemyType == EnemyType.Stumbler)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            playerPosition = player.transform.position;
+            
         }
 
 
+
     }
+
+    IEnumerator NMADisable(float time)
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        nma.enabled = false;
+
+        yield return new WaitForSeconds(time);
+        Vector3 jumpDirection = (playerPosition - transform.position).normalized;
+        Vector3 jumpUpDirection = new Vector3(0, 1, 0);
+        rb.AddForce(jumpDirection * jumpForwardForce);
+        rb.AddForce(jumpUpDirection * jumpUpForce);
+
+        //if ()
+        {
+       //     yield return new WaitForEndOfFrame();
+        }
+        
+
+        
+        nma.enabled = true;
+        nma.SetDestination(playerPosition);
+    }
+
 }
 
 public enum EnemyType
 {
     Leaper =0,
-    Flyer =1,
+    Stumbler =1,
 }

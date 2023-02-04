@@ -501,8 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {fileID: 2111228542}
-  jumpForce: 100
-  jumpForwardForce: 100
+  jumpUpForce: 500
+  jumpForwardForce: 500
   enemyType: 0
   howclose: 15
   dist: 0
