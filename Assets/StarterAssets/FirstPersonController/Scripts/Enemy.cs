@@ -16,10 +16,11 @@ public class Enemy : MonoBehaviour
     public float dist;
     public float leaptimer = 0;
     public float maxleaptimer = 7;
-    public bool isGrounded = true;
+    public float groundCheckDistance = 0.1f;
+    public LayerMask groundLayerMask;
+    private bool isGrounded;
 
 
-    
     void Awake()
     {
         nma = GetComponent<NavMeshAgent>();
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         leaptimer = leaptimer + Time.deltaTime;
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
 
 
         if (nma.enabled)
@@ -82,7 +84,7 @@ public class Enemy : MonoBehaviour
         rb.AddForce(jumpDirection * jumpForwardForce);
         rb.AddForce(jumpUpDirection * jumpUpForce);
 
-
+        
 
         if (isGrounded == false)
         {
@@ -94,6 +96,7 @@ public class Enemy : MonoBehaviour
         nma.enabled = true;
         nma.SetDestination(playerPosition);
     }
+
 
 }
 
