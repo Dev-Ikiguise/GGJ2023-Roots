@@ -12,6 +12,10 @@ public class GameEventManager : MonoBehaviour
     public GameObject confirmationUI;
     public AudioSource pauseAudioSource;
 
+    public bool useTimescalePause = true;
+    public bool useFindObjectPause = true;
+    public List<string> findObjectPauseTags; 
+
 
     private void Awake()
     {

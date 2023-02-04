@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class MenuNavigation : MonoBehaviour
 {
 	private Button previousButton;
-	[SerializeField] private float scaleAmount = 1.4f;
-	[SerializeField] private GameObject defaultButton = null;
-	bool disableMouse = true;
+	public float scaleAmount = 1.4f;
+	public GameObject defaultButton = null;
+	public bool disableMouse = true;
+
+	[SerializeField]GameObject selected;
 
 	void Start()
 	{
@@ -27,15 +29,15 @@ public class MenuNavigation : MonoBehaviour
 	void Update()
 	{
 
-		GameObject selected = EventSystem.current.currentSelectedGameObject;
+		selected = EventSystem.current.currentSelectedGameObject;
 
-		if (disableMouse && Input.GetButton("MouseAny"))
+		if (disableMouse && (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)))
 		{
 			//Hides selecting of gameobjects through mouse clicks.  Simplistic, but effective in most cases.
 			EventSystem.current.SetSelectedGameObject(previousButton.gameObject);
 		}
 
-		if (selected == null)
+		if (selected == null || selected.GetType() != typeof(Button) )
         {
 			if (previousButton != null)
             {
@@ -43,6 +45,11 @@ public class MenuNavigation : MonoBehaviour
             }
 			else
             {
+				if (defaultButton != null)
+                {
+					selected = defaultButton;
+                }
+
 				return;
             }
         }
@@ -74,11 +81,12 @@ public class MenuNavigation : MonoBehaviour
 
 	void HighlightButton(Button btn)
 	{
-		btn.transform.localScale = new Vector3(scaleAmount, scaleAmount, scaleAmount);
+		EventSystem.current.SetSelectedGameObject(btn.gameObject);
+		btn.transform.localScale = new Vector3(btn.transform.localScale.x * scaleAmount, btn.transform.localScale.y * scaleAmount, btn.transform.localScale.z * scaleAmount);
 	}
 
 	void UnHighlightButton(Button btn)
 	{
-		btn.transform.localScale = new Vector3(1, 1, 1);
+		btn.transform.localScale = new Vector3(btn.transform.localScale.x / scaleAmount, btn.transform.localScale.y / scaleAmount, btn.transform.localScale.z / scaleAmount);
 	}
 }
