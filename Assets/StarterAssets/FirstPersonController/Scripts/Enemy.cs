@@ -53,9 +53,6 @@ public class Enemy : MonoBehaviour
             {
                 leaptimer = 0;
                 StartCoroutine(NMADisable(.5f));
-                
-                
-                
             }
 
 
@@ -66,7 +63,14 @@ public class Enemy : MonoBehaviour
             Rigidbody rb = GetComponent<Rigidbody>();
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerPosition = player.transform.position;
-            
+
+        }
+
+        if (enemyType == EnemyType.Superstumbler)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            playerPosition = player.transform.position;
         }
 
 
@@ -75,6 +79,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator NMADisable(float time)
     {
+        Debug.Log("IEnumerator Reached");
         Rigidbody rb = GetComponent<Rigidbody>();
         nma.enabled = false;
 
@@ -84,17 +89,16 @@ public class Enemy : MonoBehaviour
         rb.AddForce(jumpDirection * jumpForwardForce);
         rb.AddForce(jumpUpDirection * jumpUpForce);
 
-        
-
-        if (isGrounded == false)
+        while (!isGrounded)
         {
+            yield return null;
+            isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
             yield return new WaitForEndOfFrame();
         }
-        
-
-        
         nma.enabled = true;
         nma.SetDestination(playerPosition);
+        Debug.Log("SetDestination Reached");
+
     }
 
 
@@ -104,4 +108,5 @@ public enum EnemyType
 {
     Leaper =0,
     Stumbler =1,
+    Superstumbler =2,
 }
