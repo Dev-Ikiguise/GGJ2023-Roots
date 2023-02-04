@@ -106,7 +106,8 @@ public class PotatoGun : MonoBehaviour
     void Firetato() //Fires potato from launcher
     {
         //spawn and then launch game object from point of origin
-        GameObject newTato = Instantiate(tatoes[0], tatoSpawnPoint.position, transform.rotation);
+        int rand = Random.Range(0, tatoes.Count);
+        GameObject newTato = Instantiate(tatoes[rand], tatoSpawnPoint.position, transform.rotation);
         newTato.GetComponent<Rigidbody>().AddForce(tatoSpawnPoint.forward * launchSpeed);
         Destroy(newTato,5);
         potatoShootSound.pitch = Random.Range(0.92f, 1.08f);
