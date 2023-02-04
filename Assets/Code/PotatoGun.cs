@@ -6,18 +6,20 @@ public class PotatoGun : MonoBehaviour
 {
     public Light flashlight;
     public KeyCode flashLightToggleKey;
-    public ParticleSystem pesticide;
+    public List <ParticleSystem> pesticides;
     public KeyCode pesticideToggleKey;
     bool isFiringPesticide;
     public List<GameObject> tatoes;
     public Transform tatoSpawnPoint;
     public float launchSpeed;
+    public int pesticideIndex;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        pesticideIndex = 0;
     }
 
     // Update is called once per frame
@@ -39,6 +41,14 @@ public class PotatoGun : MonoBehaviour
         {
             Firetato();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchPesticideDown();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchPesticideUp();
+        }
 
     }
 
@@ -49,19 +59,43 @@ public class PotatoGun : MonoBehaviour
     }
     void FirePesticide()
     {
-        pesticide.Play();
+        pesticides[pesticideIndex].Play();
     }
 
     void StopPesticide()
     {
-        pesticide.Stop();
+        pesticides[pesticideIndex].Stop();
     }
 
     void Firetato() //Fires potato from launcher
     {
-        //if key is pressed, spawn and then launch game object from point of origin
+        //spawn and then launch game object from point of origin
         GameObject newTato = Instantiate(tatoes[0], tatoSpawnPoint.position, transform.rotation);
         newTato.GetComponent<Rigidbody>().AddForce(tatoSpawnPoint.forward * launchSpeed);
         Destroy(newTato,5);
+    }
+    void SwitchPesticideUp()
+    {
+        //Stop previous pesticide
+        pesticides[pesticideIndex].gameObject.SetActive(false);
+        //switches to new pesticide
+        pesticideIndex++;
+        if(pesticideIndex >= pesticides.Count)
+        {
+            pesticideIndex = 0;
+        }
+        //starts new pesticide
+        pesticides[pesticideIndex].gameObject.SetActive(true);
+    }
+    void SwitchPesticideDown()
+    {
+        //same as SwitchPesticideUp but counting down
+        pesticides[pesticideIndex].gameObject.SetActive(false);
+        pesticideIndex--;
+        if (pesticideIndex < 0)
+        {
+            pesticideIndex = pesticides.Count - 1;
+        }
+        pesticides[pesticideIndex].gameObject.SetActive(true);
     }
 }

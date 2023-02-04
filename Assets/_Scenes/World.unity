@@ -22628,12 +22628,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 1032926355}
   flashLightToggleKey: 102
-  pesticide: {fileID: 349943624}
+  pesticides:
+  - {fileID: 349943624}
+  - {fileID: 217390858}
+  - {fileID: 1571815636}
   pesticideToggleKey: 0
   tatoes:
   - {fileID: 8794402431133864891, guid: 3eacb9bea8ec7ed46be1ff47c7b6183b, type: 3}
   tatoSpawnPoint: {fileID: 1462978234}
   launchSpeed: 500
+  pesticideIndex: 0
 --- !u!1 &1475633551
 GameObject:
   m_ObjectHideFlags: 0
