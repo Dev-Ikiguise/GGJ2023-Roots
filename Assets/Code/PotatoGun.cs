@@ -23,6 +23,7 @@ public class PotatoGun : MonoBehaviour
     public AudioSource potatoShootSound;
     public AudioSource flashlightSound;
     float initalZPosition;
+    public Rigidbody fpsRigidBody;
 
 
     // Start is called before the first frame update
@@ -110,7 +111,7 @@ public class PotatoGun : MonoBehaviour
         //spawn and then launch game object from point of origin
         int rand = Random.Range(0, tatoes.Count);
         GameObject newTato = Instantiate(tatoes[rand], tatoSpawnPoint.position, transform.rotation);
-        newTato.GetComponent<Rigidbody>().AddForce(tatoSpawnPoint.forward * launchSpeed);
+        newTato.GetComponent<Rigidbody>().AddForce((tatoSpawnPoint.forward * launchSpeed) + fpsRigidBody.velocity);
         Destroy(newTato,5);
         potatoShootSound.pitch = Random.Range(0.92f, 1.08f);
         potatoShootSound.Play();
