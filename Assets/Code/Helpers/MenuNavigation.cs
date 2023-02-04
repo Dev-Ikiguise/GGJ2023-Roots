@@ -37,7 +37,7 @@ public class MenuNavigation : MonoBehaviour
 			EventSystem.current.SetSelectedGameObject(previousButton.gameObject);
 		}
 
-		if (selected == null || selected.GetType() != typeof(Button) )
+		if (selected == null)
         {
 			if (previousButton != null)
             {
