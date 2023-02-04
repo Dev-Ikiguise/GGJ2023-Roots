@@ -16,6 +16,9 @@ public class PotatoGun : MonoBehaviour
     public float rotationAmount;
     public float launchSpeed;
     public int pesticideIndex;
+    public AudioSource spraySound;
+    public AudioSource ammoSwitchSound;
+    public AudioSource potatoShootSound;
 
 
     // Start is called before the first frame update
@@ -70,11 +73,13 @@ public class PotatoGun : MonoBehaviour
     void FirePesticide()
     {
         pesticides[pesticideIndex].Play();
+        spraySound.Play();
     }
 
     void StopPesticide()
     {
         pesticides[pesticideIndex].Stop();
+        spraySound.Stop();
     }
 
     void Firetato() //Fires potato from launcher
@@ -83,6 +88,7 @@ public class PotatoGun : MonoBehaviour
         GameObject newTato = Instantiate(tatoes[0], tatoSpawnPoint.position, transform.rotation);
         newTato.GetComponent<Rigidbody>().AddForce(tatoSpawnPoint.forward * launchSpeed);
         Destroy(newTato,5);
+        potatoShootSound.Play();
     }
     void SwitchPesticideUp()
     {
@@ -97,6 +103,7 @@ public class PotatoGun : MonoBehaviour
 
         rotationAmount += 90;
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
+        ammoSwitchSound.Play();
     }
     void SwitchPesticideDown()
     {
@@ -109,5 +116,6 @@ public class PotatoGun : MonoBehaviour
         }
         rotationAmount -= 90;
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
+        ammoSwitchSound.Play();
     }
 }
