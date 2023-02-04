@@ -22,6 +22,7 @@ public class PotatoGun : MonoBehaviour
     public AudioSource ammoSwitchSound;
     public AudioSource potatoShootSound;
     public AudioSource flashlightSound;
+    float initalZPosition;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class PotatoGun : MonoBehaviour
     {
         pesticideIndex = 0;
         isPlayingSpraySound = false;
+        initalZPosition = transform.localPosition.z;
     }
 
     // Update is called once per frame
@@ -112,6 +114,7 @@ public class PotatoGun : MonoBehaviour
         Destroy(newTato,5);
         potatoShootSound.pitch = Random.Range(0.92f, 1.08f);
         potatoShootSound.Play();
+        Recoil();
     }
     void SwitchPesticideUp()
     {
@@ -142,5 +145,18 @@ public class PotatoGun : MonoBehaviour
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
         ammoSwitchSound.pitch = 1.08f;
         ammoSwitchSound.Play();
+    }
+
+    void Recoil()
+    {
+        StartCoroutine(RecoilCo());
+    }
+
+    private IEnumerator RecoilCo()
+    {
+        float recoilDuration = .2f;
+        transform.DOLocalMoveZ(initalZPosition - .2f, recoilDuration, false);
+        yield return new WaitForSeconds(recoilDuration);
+        transform.DOLocalMoveZ(initalZPosition, recoilDuration*2, false);
     }
 }
