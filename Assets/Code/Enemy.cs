@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public LayerMask groundLayerMask;
     private bool isGrounded;
 
+    public float agroDistance;
 
     void Awake()
     {
@@ -34,6 +35,19 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distanceToPlayer = Vector3.Distance(transform.position, position.position);
+        if (distanceToPlayer > agroDistance)
+        {
+            nma.speed = 0;
+
+            return;      
+        }
+        else
+        {
+            nma.speed = 1;
+        }
+
+
         leaptimer = leaptimer + Time.deltaTime;
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
 
