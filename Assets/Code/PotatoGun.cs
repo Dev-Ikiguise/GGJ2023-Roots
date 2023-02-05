@@ -133,6 +133,8 @@ public class PotatoGun : MonoBehaviour
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
         ammoSwitchSound.pitch = 0.95f;
         ammoSwitchSound.Play();
+
+        GameplayUI.Instance.ShowCurrentPesticide(pesticideIndex);
     }
     void SwitchPesticideDown()
     {
@@ -147,6 +149,8 @@ public class PotatoGun : MonoBehaviour
         pesticideChamber.DOLocalRotate(new Vector3(rotationAmount, 0, 0), .2f, RotateMode.Fast);
         ammoSwitchSound.pitch = 1.08f;
         ammoSwitchSound.Play();
+
+        GameplayUI.Instance.ShowCurrentPesticide(pesticideIndex);
     }
 
     void Recoil()
