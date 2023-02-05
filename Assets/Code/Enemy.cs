@@ -19,7 +19,10 @@ public class Enemy : MonoBehaviour
     public float groundCheckDistance = 0.1f;
     public LayerMask groundLayerMask;
     private bool isGrounded;
+    private Vector3 direction;
 
+    float distanceFromPlayer;
+    public float agroDistance;
 
     void Awake()
     {
@@ -29,14 +32,20 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         nma.SetDestination(position.position);
+        ChangeDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
+        distanceFromPlayer = Vector3.Distance(transform.position, position.position);
+        print("distanceFromPlayer " + distanceFromPlayer);
+        if (distanceFromPlayer > agroDistance) return;
+
+
+
         leaptimer = leaptimer + Time.deltaTime;
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
-
 
         if (nma.enabled)
         {
@@ -54,8 +63,6 @@ public class Enemy : MonoBehaviour
                 leaptimer = 0;
                 StartCoroutine(NMADisable(.5f));
             }
-
-
         }
 
         if (enemyType == EnemyType.Stumbler)
@@ -72,9 +79,6 @@ public class Enemy : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerPosition = player.transform.position;
         }
-
-
-
     }
 
     IEnumerator NMADisable(float time)
@@ -101,6 +105,12 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void ChangeDirection()
+    {
+        direction = new Vector3(Random.Range(-1.0f, 1.0f),
+                                Random.Range(-1.0f, 1.0f),
+                                Random.Range(-1.0f, 1.0f));
+    }
 
 }
 
