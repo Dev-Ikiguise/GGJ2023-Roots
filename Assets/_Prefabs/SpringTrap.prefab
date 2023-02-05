@@ -531,7 +531,7 @@ Transform:
   - {fileID: 3006247244123360447}
   - {fileID: 7170196749422858320}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3006247243833826464
 BoxCollider:
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e810c7d63580a6c4f85315c23bb68181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpwardVelocity: 500
+  UpwardVelocity: 700
   closedTrap: {fileID: 7550978948599040746}
   openedTrap: {fileID: 3006247244123360446}
 --- !u!1 &3006247244043052463
