@@ -116,6 +116,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  agroDistance: 0
 --- !u!195 &40679737796205700
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -321,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 40679737796205817}
-  yOffset: 2.2
+  yOffset: 2.4
 --- !u!114 &40679737940277452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +373,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.5, y: 0.1}
+  m_SizeDelta: {x: 1, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &40679738655868850
 CanvasRenderer:
