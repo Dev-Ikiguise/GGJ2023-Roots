@@ -85,7 +85,7 @@ public class SoundManager : MonoBehaviour {
         narrationManager.volume = narrationVolume * masterVolume;
         foreach (AudioSource aud in bgmAdditionalLayers)
         {
-            aud.volume = bgmMusicManager.volume * .75f;
+            aud.volume = bgmMusicManager.volume;
         }
 
         
@@ -516,16 +516,27 @@ public enum SoundType
 [System.Serializable]
 public enum SoundName
 {
-    Walk = 0,
-    Trap = 1,
-    Jump = 2,
-    TakeDamage = 3,
-    Magic = 4,
-    Collect = 5,
-    TurnIn = 6,
-    Dies = 7,
-    InventoryOpen = 8,
-    InventoryClose = 9,
-
-
+    BGMAmbient = 0,
+    BGMChase = 1,
+    BGMHorror = 2,
+    BGMWindAmbience = 3,
+    BounceTrap = 4,
+    FrightenedBreaths = 5,
+    Cutlery = 6,
+    Flashlight1 = 7,
+    Flashlight2 = 8,
+    Flashlight3 = 9,
+    Flashlight4 = 10,
+    MonsterScream1 = 11,
+    MonsterScream2 = 12,
+    MonsterScream3 = 13,
+    OnionScream = 14,
+    Pageturn1 = 15,
+    Pageturn2 = 16,
+    PotatoGun = 17,
+    Spraying = 18,
+    Writing1 = 19,
+    Writing2 = 20,
+    AmmoSwitch = 21,
+    ExplosionDeath = 22,
 }
