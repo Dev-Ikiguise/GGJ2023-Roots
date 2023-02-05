@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         nma = GetComponent<NavMeshAgent>();
+        position = FindObjectOfType<PotatoGun>().transform;
     }
     // Start is called before the first frame update
     void Start()
