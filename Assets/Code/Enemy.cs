@@ -113,11 +113,14 @@ public class Enemy : MonoBehaviour
 
     void ChangeDirection()
     {
-        direction = new Vector3(Random.Range(-1.0f, 1.0f),
-                                Random.Range(-1.0f, 1.0f),
-                                Random.Range(-1.0f, 1.0f));
-        
-        nma.SetDestination(direction * 2f);
+        float randomX = Random.Range(-1f, 1f);
+        float randomZ = Random.Range(-1f, 1f);
+        float randomMagnitude = Random.Range(1f, 2f);
+
+        Vector3 randomDirection = new Vector3(randomX, 0, randomZ);
+        randomDirection = randomDirection.normalized * randomMagnitude;
+
+        nma.SetDestination(transform.position + randomDirection);
         patroltimer = 0;
     }
 
