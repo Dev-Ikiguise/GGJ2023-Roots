@@ -24671,6 +24671,7 @@ MonoBehaviour:
   potatoShootSound: {fileID: 1134583545}
   flashlightSound: {fileID: 462022119}
   fpsRigidBody: {fileID: 2097590400}
+  gunModel: {fileID: 3398692346787201925}
 --- !u!1 &1359412051812763151
 GameObject:
   m_ObjectHideFlags: 0

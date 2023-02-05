@@ -24,6 +24,7 @@ public class PotatoGun : MonoBehaviour
     public AudioSource flashlightSound;
     float initalZPosition;
     public Rigidbody fpsRigidBody;
+    public Transform gunModel;
 
 
     // Start is called before the first frame update
@@ -157,8 +158,8 @@ public class PotatoGun : MonoBehaviour
     private IEnumerator RecoilCo()
     {
         float recoilDuration = .04f;
-        transform.DOLocalMoveZ(initalZPosition - .03f, recoilDuration, false);//.SetEase(Ease.InOutCirc);
+        gunModel.transform.DOLocalMoveZ(initalZPosition - .03f, recoilDuration, false);//.SetEase(Ease.InOutCirc);
         yield return new WaitForSeconds(recoilDuration);
-        transform.DOLocalMoveZ(initalZPosition, recoilDuration * 2, false);//.SetEase(Ease.InOutQuad);
+        gunModel.transform.DOLocalMoveZ(initalZPosition, recoilDuration * 2, false);//.SetEase(Ease.InOutQuad);
     }
 }
