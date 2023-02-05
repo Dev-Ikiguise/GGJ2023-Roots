@@ -19,7 +19,12 @@ public class Enemy : MonoBehaviour
     public float groundCheckDistance = 0.1f;
     public LayerMask groundLayerMask;
     private bool isGrounded;
+    private Vector3 direction;
+    private Vector3 lastKnownPosition;
+    public float patroltimer = 0;
 
+    float distanceFromPlayer;
+    public float agroDistance;
 
     void Awake()
     {
@@ -29,16 +34,26 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         nma.SetDestination(position.position);
+        ChangeDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
+        patroltimer = patroltimer + Time.deltaTime;
+        distanceFromPlayer = Vector3.Distance(transform.position, position.position);
+        print("distanceFromPlayer " + distanceFromPlayer);
+        if (distanceFromPlayer > agroDistance && patroltimer >= 3)
+        {
+            lastKnownPosition = transform.position;
+            patroltimer = 0;
+            ChangeDirection();
+        }
+
         leaptimer = leaptimer + Time.deltaTime;
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
 
-
-        if (nma.enabled)
+        if (nma.enabled && distanceFromPlayer < agroDistance)
         {
             nma.SetDestination(position.position);
         }
@@ -53,12 +68,7 @@ public class Enemy : MonoBehaviour
             {
                 leaptimer = 0;
                 StartCoroutine(NMADisable(.5f));
-                
-                
-                
             }
-
-
         }
 
         if (enemyType == EnemyType.Stumbler)
@@ -66,15 +76,20 @@ public class Enemy : MonoBehaviour
             Rigidbody rb = GetComponent<Rigidbody>();
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerPosition = player.transform.position;
-            
+
         }
 
-
-
+        if (enemyType == EnemyType.Superstumbler)
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            playerPosition = player.transform.position;
+        }
     }
 
     IEnumerator NMADisable(float time)
     {
+        Debug.Log("IEnumerator Reached");
         Rigidbody rb = GetComponent<Rigidbody>();
         nma.enabled = false;
 
@@ -84,19 +99,27 @@ public class Enemy : MonoBehaviour
         rb.AddForce(jumpDirection * jumpForwardForce);
         rb.AddForce(jumpUpDirection * jumpUpForce);
 
-        
-
-        if (isGrounded == false)
+        while (!isGrounded)
         {
+            yield return null;
+            isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
             yield return new WaitForEndOfFrame();
         }
-        
-
-        
         nma.enabled = true;
-        nma.SetDestination(playerPosition);
+        nma.SetDestination(lastKnownPosition);
+        Debug.Log("SetDestination Reached");
+
     }
 
+    void ChangeDirection()
+    {
+        direction = new Vector3(Random.Range(-1.0f, 1.0f),
+                                Random.Range(-1.0f, 1.0f),
+                                Random.Range(-1.0f, 1.0f));
+        
+        nma.SetDestination(direction * 2f);
+        patroltimer = 0;
+    }
 
 }
 
@@ -104,4 +127,5 @@ public enum EnemyType
 {
     Leaper =0,
     Stumbler =1,
+    Superstumbler =2,
 }
