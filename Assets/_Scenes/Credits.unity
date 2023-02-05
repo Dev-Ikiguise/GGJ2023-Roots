@@ -1092,7 +1092,7 @@ MonoBehaviour:
   fadeInTime: 1
   fadeOutTime: 2
   startFadeOutAfterTime: 0
-  sceneToLoadAfterFadeOut: 
+  sceneToLoadAfterFadeOut: MainMenu
   fadeImage: {fileID: 1063354171}
   transition: 0
 --- !u!114 &1736088967

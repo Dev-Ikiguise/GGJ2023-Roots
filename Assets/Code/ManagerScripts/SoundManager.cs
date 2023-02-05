@@ -538,5 +538,5 @@ public enum SoundName
     Writing1 = 19,
     Writing2 = 20,
     AmmoSwitch = 21,
-
+    ExplosionDeath = 22,
 }
