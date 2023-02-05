@@ -1003,18 +1003,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 2074558787}
-  sprites: []
-  timeIntervals: []
+  sprites:
+  - {fileID: 21300000, guid: 0dbce9f320a5e56498c9bafb8066f9e6, type: 3}
+  - {fileID: 21300000, guid: fc292359b3f75b047b332a78c85a56c7, type: 3}
+  - {fileID: 21300000, guid: 205c21c3146d7fb44adec6edc733bc2a, type: 3}
+  - {fileID: 21300000, guid: bbc700fa2bb0f744898046393a79a28a, type: 3}
+  - {fileID: 21300000, guid: 54e6684bedb9cb04da61eefa5faeecd6, type: 3}
+  - {fileID: 21300000, guid: 1e32d502550e7bc47b96d26c0778084f, type: 3}
+  - {fileID: 21300000, guid: 77a2b6ac623704849939087f74ff3851, type: 3}
+  - {fileID: 21300000, guid: 19ffbc24299820e468a83295f65523ad, type: 3}
+  - {fileID: 21300000, guid: a401bff5b4755414b9a68428aef3fc67, type: 3}
+  - {fileID: 21300000, guid: f415e18067d282d4baa866e73f870a37, type: 3}
+  - {fileID: 21300000, guid: 15daa9fe2c8cdd14f8752bc6f79bbe7b, type: 3}
+  - {fileID: 21300000, guid: e2ef38932e97d2b4694122c15fa2d913, type: 3}
+  timeIntervals:
+  - 2
+  - 2
+  - 1.5
+  - 2
+  - 1.25
+  - 1.25
+  - 1.25
+  - 2
+  - 2
+  - 1.5
+  - 2
+  - 2
   defaultInterval: 2.5
   audioSource: {fileID: 288593035}
-  whispers: {fileID: 0}
-  bells: {fileID: 0}
-  glow: {fileID: 0}
-  door: {fileID: 0}
-  creepy: {fileID: 0}
-  wind: {fileID: 0}
-  cricket: {fileID: 0}
-  vines: {fileID: 0}
+  PageFlip1: {fileID: 8300000, guid: 587f8bb09eee1e34bbfb56ca788a59ff, type: 3}
+  PageFlip2: {fileID: 8300000, guid: 25caf8fe1af09794bb15c0cd68ef4414, type: 3}
 --- !u!4 &2021121940
 Transform:
   m_ObjectHideFlags: 0
