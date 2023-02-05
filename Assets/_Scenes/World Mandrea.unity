@@ -25415,16 +25415,6 @@ PrefabInstance:
       propertyPath: position
       value: 
       objectReference: {fileID: 279258919}
-    - target: {fileID: 40679737796205701, guid: 66008bae242a9b64194e35d56bf10e77,
-        type: 3}
-      propertyPath: enemyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 40679737796205701, guid: 66008bae242a9b64194e35d56bf10e77,
-        type: 3}
-      propertyPath: agroDistance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 40679737899158476, guid: 66008bae242a9b64194e35d56bf10e77,
         type: 3}
       propertyPath: m_RootOrder
@@ -25815,16 +25805,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Container - Carrot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6352354785249231220, guid: 5bcde64b940951f4eaa9aa0e8a3cf63a,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6352354785249231224, guid: 5bcde64b940951f4eaa9aa0e8a3cf63a,
-        type: 3}
-      propertyPath: maxHealth
-      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6352354785249231227, guid: 5bcde64b940951f4eaa9aa0e8a3cf63a,
         type: 3}
@@ -26351,16 +26331,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 545960486}
     m_Modifications:
-    - target: {fileID: 1577091812707212227, guid: 80d5ee282976802498b89754dee4b32f,
-        type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577091812707212227, guid: 80d5ee282976802498b89754dee4b32f,
-        type: 3}
-      propertyPath: m_LightProbeUsage
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1596943279599292793, guid: 80d5ee282976802498b89754dee4b32f,
         type: 3}
       propertyPath: m_RootOrder
@@ -26426,11 +26396,6 @@ PrefabInstance:
       propertyPath: position
       value: 
       objectReference: {fileID: 279258919}
-    - target: {fileID: 1596943280234167945, guid: 80d5ee282976802498b89754dee4b32f,
-        type: 3}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d5ee282976802498b89754dee4b32f, type: 3}
@@ -26563,21 +26528,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4842943669816875579, guid: 5cafbbb1ddeb4d24db66605230ebcf0c,
-        type: 3}
-      propertyPath: yOffset
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4842943670576915778, guid: 5cafbbb1ddeb4d24db66605230ebcf0c,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4842943670576915778, guid: 5cafbbb1ddeb4d24db66605230ebcf0c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0.11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

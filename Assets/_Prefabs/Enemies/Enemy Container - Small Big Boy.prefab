@@ -268,7 +268,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  agroDistance: 10
+  agroDistance: 20
 --- !u!195 &4842943669691694706
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4842943669719542073}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 131.611, y: 0.02700001, z: 64.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4842943669691694607}
-  yOffset: 2.4
+  yOffset: 0.8
 --- !u!114 &4842943669816875578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 0.2}
+  m_SizeDelta: {x: 0.5, y: 0.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4842943670576915780
 CanvasRenderer:

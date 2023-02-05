@@ -431,7 +431,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  agroDistance: 10
+  agroDistance: 20
 --- !u!195 &550815216171152408
 NavMeshAgent:
   m_ObjectHideFlags: 0

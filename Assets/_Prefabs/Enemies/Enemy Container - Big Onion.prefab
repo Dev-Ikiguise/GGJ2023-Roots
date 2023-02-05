@@ -107,7 +107,7 @@ MonoBehaviour:
   position: {fileID: 0}
   jumpUpForce: 500
   jumpForwardForce: 200
-  enemyType: 0
+  enemyType: 1
   howclose: 0
   dist: 0
   leaptimer: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  agroDistance: 0
+  agroDistance: 20
 --- !u!195 &40679737796205700
 NavMeshAgent:
   m_ObjectHideFlags: 0
