@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     public LayerMask groundLayerMask;
     private bool isGrounded;
     private Vector3 direction;
+    private Vector3 lastKnownPosition;
+    public float patroltimer = 0;
 
     float distanceFromPlayer;
     public float agroDistance;
@@ -38,16 +40,20 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        patroltimer = patroltimer + Time.deltaTime;
         distanceFromPlayer = Vector3.Distance(transform.position, position.position);
         print("distanceFromPlayer " + distanceFromPlayer);
-        if (distanceFromPlayer > agroDistance) return;
-
-
+        if (distanceFromPlayer > agroDistance && patroltimer >= 3)
+        {
+            lastKnownPosition = transform.position;
+            patroltimer = 0;
+            ChangeDirection();
+        }
 
         leaptimer = leaptimer + Time.deltaTime;
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, groundCheckDistance, groundLayerMask);
 
-        if (nma.enabled)
+        if (nma.enabled && distanceFromPlayer < agroDistance)
         {
             nma.SetDestination(position.position);
         }
@@ -100,7 +106,7 @@ public class Enemy : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         nma.enabled = true;
-        nma.SetDestination(playerPosition);
+        nma.SetDestination(lastKnownPosition);
         Debug.Log("SetDestination Reached");
 
     }
@@ -110,6 +116,9 @@ public class Enemy : MonoBehaviour
         direction = new Vector3(Random.Range(-1.0f, 1.0f),
                                 Random.Range(-1.0f, 1.0f),
                                 Random.Range(-1.0f, 1.0f));
+        
+        nma.SetDestination(direction * 2f);
+        patroltimer = 0;
     }
 
 }

@@ -793,6 +793,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  patroltimer: 0
   agroDistance: 0
 --- !u!195 &72926745
 NavMeshAgent:
@@ -15123,7 +15124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526584526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 123.53001, y: 1.1, z: 84.78}
+  m_LocalPosition: {x: 155.9, y: 1.1, z: 96.21}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16598,6 +16599,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  patroltimer: 0
   agroDistance: 0
 --- !u!1 &694009381
 GameObject:
@@ -19565,6 +19567,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  patroltimer: 0
   agroDistance: 0
 --- !u!195 &974936543
 NavMeshAgent:
@@ -20622,6 +20625,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  patroltimer: 0
   agroDistance: 0
 --- !u!195 &1039368660
 NavMeshAgent:
@@ -36781,6 +36785,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  patroltimer: 0
   agroDistance: 0
 --- !u!195 &1799721568
 NavMeshAgent:
@@ -39135,6 +39140,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  patroltimer: 0
   agroDistance: 10
 --- !u!195 &2043518500
 NavMeshAgent:
