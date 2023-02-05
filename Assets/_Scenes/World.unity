@@ -39131,7 +39131,7 @@ MonoBehaviour:
   position: {fileID: 279258919}
   jumpUpForce: 500
   jumpForwardForce: 200
-  enemyType: 0
+  enemyType: 1
   howclose: 0
   dist: 0
   leaptimer: 0
