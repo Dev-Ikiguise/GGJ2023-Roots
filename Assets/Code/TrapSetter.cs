@@ -23,19 +23,13 @@ public class TrapSetter : MonoBehaviour
             }
             else
             {
-                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity);
                 currentTrap = Instantiate(trapPrefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
-
-                //if (Physics.Raycast(ray.origin, ray.direction, out hitInfo) == true)
-                //{
-                //    currentTrap = Instantiate(trapPrefab, new Vector3(hitInfo.point.x, transform.position.y, hitInfo.point.z), Quaternion.identity);
-                //}
-
                 trapIsSet = true;
             }
 
+            GameplayUI.Instance.ToggleTrapIcon();
         }
     }
 }
