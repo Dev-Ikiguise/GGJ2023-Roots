@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 114565534}
   - component: {fileID: 114565533}
   m_Layer: 0
-  m_Name: Note
+  m_Name: note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24180,7 +24180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readNote: 101
   isReading: 0
-  note: {fileID: 21300000, guid: 28489cd791679f546a13730f3772fd20, type: 3}
+  note: {fileID: 21300000, guid: c6234587a9240ca4f9b4e1354d46b401, type: 3}
   noteCanvas: {fileID: 1158826999}
   image: {fileID: 114565533}
 --- !u!65 &1597525268
