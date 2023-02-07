@@ -26,6 +26,7 @@ public class PotatoGun : MonoBehaviour
     public Rigidbody fpsRigidBody;
     public Transform gunModel;
 
+    public GameObject hintText;
 
     // Start is called before the first frame update
     void Start()
@@ -66,10 +67,12 @@ public class PotatoGun : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
         {
             SwitchPesticideUp();
+            hintText.SetActive(false);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
         {
             SwitchPesticideDown();
+            hintText.SetActive(false);
         }
     }
 
@@ -96,8 +99,6 @@ public class PotatoGun : MonoBehaviour
             isPlayingSpraySound = true;
         }
         pesticides[pesticideIndex].Play();
-
-        
     }
 
     void StopPesticide()
@@ -112,7 +113,8 @@ public class PotatoGun : MonoBehaviour
         //spawn and then launch game object from point of origin
         int rand = Random.Range(0, tatoes.Count);
         GameObject newTato = Instantiate(tatoes[rand], tatoSpawnPoint.position, transform.rotation);
-        newTato.GetComponent<Rigidbody>().AddForce((tatoSpawnPoint.forward * launchSpeed) + fpsRigidBody.velocity);
+        print("fpsRigidBody.velocity" + fpsRigidBody.velocity);
+        newTato.GetComponent<Rigidbody>().AddForce((tatoSpawnPoint.forward * launchSpeed) + (fpsRigidBody.velocity * 30));
         Destroy(newTato,5);
         potatoShootSound.pitch = Random.Range(0.92f, 1.08f);
         potatoShootSound.Play();

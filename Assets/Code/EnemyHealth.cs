@@ -9,16 +9,20 @@ public class EnemyHealth : MonoBehaviour
     float currentHealth;
     public GameObject healthUI;
     public Image healthBar;
+    public Pesticide.PesticideColor pesticideWeakness;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        healthUI.transform.localScale = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Potato>())
         {
+            healthUI.transform.localScale = Vector3.one;
+
             currentHealth -= collision.gameObject.GetComponent<Potato>().damageToGive;
 
             if (currentHealth <= 0)
@@ -32,7 +36,18 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        currentHealth -= 1;
+        float damageBonus = 0;
+
+        if (other.GetComponent<Pesticide>() && other.GetComponent<Pesticide>().pesticideColor == pesticideWeakness)
+        {
+            damageBonus = 10;
+        }
+
+        print(other.name);
+
+        healthUI.transform.localScale = Vector3.one;
+
+        currentHealth -= 1 + damageBonus;
         print(currentHealth);
 
         if (currentHealth <= 0)

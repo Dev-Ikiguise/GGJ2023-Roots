@@ -546,7 +546,7 @@ Transform:
   - {fileID: 1596943279911108680}
   - {fileID: 1596943280234167946}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596943279911108686
 GameObject:
@@ -846,6 +846,7 @@ MonoBehaviour:
   maxHealth: 300
   healthUI: {fileID: 1596943279911108686}
   healthBar: {fileID: 1596943279452492624}
+  pesticideWeakness: 3
 --- !u!114 &1596943280234167942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +920,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 793871ca8275e81459979c6f59353ffe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

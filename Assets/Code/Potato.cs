@@ -5,15 +5,11 @@ using UnityEngine;
 public class Potato : MonoBehaviour
 {
     public float damageToGive;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource impactSound;
 
-    // Update is called once per frame
-    void Update()
+    public void PlayImpactSound()
     {
-        
+        float rand = Random.Range(.9f, 1.1f);
+        impactSound.Play();
     }
 }

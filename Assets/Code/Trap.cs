@@ -11,6 +11,9 @@ public class Trap : MonoBehaviour
     public GameObject closedTrap;
     public GameObject openedTrap;
 
+    public AudioSource springSound;
+    public AudioSource unspringSound;
+
     private void Start()
     {
         canLaunch = true;
@@ -18,28 +21,30 @@ public class Trap : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //find what is hitting us, find rigid body, apply upwards force
-        if (collision.gameObject.GetComponent<NavMeshAgent>())
-        {
-            collision.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        }
         if (collision.gameObject.GetComponent<Rigidbody>() && canLaunch)
         {
             Launch(collision.gameObject.GetComponent<Rigidbody>());
+            //find what is hitting us, find rigid body, apply upwards force
+            if (collision.gameObject.GetComponent<NavMeshAgent>())
+            {
+                collision.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //find what is hitting us, find rigid body, apply upwards force
-        if (other.gameObject.GetComponent<NavMeshAgent>())
-        {
-            other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-            
-        }
+
         if (other.gameObject.GetComponent<Rigidbody>() && canLaunch)
         {
             Launch(other.gameObject.GetComponent<Rigidbody>());
+
+            //find what is hitting us, find rigid body, apply upwards force
+            if (other.gameObject.GetComponent<NavMeshAgent>())
+            {
+                other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+
+            }
         }
     }
 
@@ -55,6 +60,8 @@ public class Trap : MonoBehaviour
         rigidbody.AddTorque(randomVector3);
 
         StartCoroutine(AnimateCo());
+
+        springSound.Play();
     }
 
     private IEnumerator AnimateCo()
@@ -66,5 +73,6 @@ public class Trap : MonoBehaviour
         closedTrap.SetActive(true);
         openedTrap.SetActive(false);
         canLaunch = true;
+        unspringSound.Play();
     }
 }

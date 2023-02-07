@@ -92,6 +92,7 @@ MonoBehaviour:
   maxHealth: 400
   healthUI: {fileID: 40679737940277455}
   healthBar: {fileID: 40679739387385016}
+  pesticideWeakness: 1
 --- !u!114 &40679737796205701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +204,7 @@ Transform:
   - {fileID: 40679737940277449}
   - {fileID: 40679737796205817}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40679737940277455
 GameObject:

@@ -237,7 +237,7 @@ Transform:
   - {fileID: 550815215630152038}
   - {fileID: 550815216171152423}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550815216023944418
 GameObject:
@@ -407,6 +407,7 @@ MonoBehaviour:
   maxHealth: 100
   healthUI: {fileID: 550815215630152039}
   healthBar: {fileID: 550815215522596648}
+  pesticideWeakness: 1
 --- !u!114 &550815216171152411
 MonoBehaviour:
   m_ObjectHideFlags: 0
