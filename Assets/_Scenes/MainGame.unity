@@ -12035,6 +12035,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Container - Beat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1596943279599292794, guid: 80d5ee282976802498b89754dee4b32f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064721320388297008, guid: 80d5ee282976802498b89754dee4b32f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d5ee282976802498b89754dee4b32f, type: 3}
@@ -53185,7 +53195,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'T - Trap
+  m_text: 'SHIFT -  Run
+
+    T - Trap
 
     E - Open
 

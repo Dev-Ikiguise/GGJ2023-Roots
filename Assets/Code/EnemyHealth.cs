@@ -31,6 +31,8 @@ public class EnemyHealth : MonoBehaviour
             }
 
             UpdateUI();
+
+            collision.gameObject.GetComponent<Potato>().PlayImpactSound();
         }
     }
 
