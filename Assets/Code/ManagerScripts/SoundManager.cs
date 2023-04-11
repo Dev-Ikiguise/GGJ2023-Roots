@@ -81,7 +81,7 @@ public class SoundManager : MonoBehaviour {
         bgmAdditionalLayers = transform.Find("LayeredBGMAudioSources").GetComponentsInChildren<AudioSource>();
         LoadSoundPrefs ();
 
-        bgmMusicManager.volume = bgmVolume * masterVolume;
+        //bgmMusicManager.volume = bgmVolume * masterVolume;
         narrationManager.volume = narrationVolume * masterVolume;
         foreach (AudioSource aud in bgmAdditionalLayers)
         {

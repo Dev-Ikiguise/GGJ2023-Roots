@@ -25,7 +25,6 @@ public class PotatoGun : MonoBehaviour
     float initalZPosition;
     public Rigidbody fpsRigidBody;
     public Transform gunModel;
-
     public GameObject hintText;
 
     // Start is called before the first frame update

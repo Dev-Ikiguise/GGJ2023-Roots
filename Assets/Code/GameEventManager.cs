@@ -24,10 +24,17 @@ public class GameEventManager : MonoBehaviour
 
     GameEvent currentGameEvent;
 
+    public GameObject pauseMenu;
+    FirstPersonLook firstPersonLook;
+    PotatoGun potatoGun;
+
+    public GameObject hintText;
 
     private void Awake()
     {
         Instance = this;
+        firstPersonLook = FindObjectOfType<FirstPersonLook>();
+        potatoGun = FindObjectOfType<PotatoGun>();
     }
 
     void Start()
@@ -35,24 +42,46 @@ public class GameEventManager : MonoBehaviour
         BuildGameEventList();
 
         GetObjectsToPause();
+
+        if (PlayerPrefs.GetInt("hasSeenPauseMenu") == 1)
+        {
+            hintText.SetActive(false);
+        }
     }
     
     void Update()
     {
         if (Input.GetButtonDown("Pause") && !areControlsLocked)
         {
+            hintText.SetActive(false);
+            PlayerPrefs.SetInt("hasSeenPauseMenu", 1);
+
             isPaused = !isPaused;
+
+            if (isPaused)
+            {
+                pauseMenu.SetActive(true);
+                firstPersonLook.enabled = false;
+                potatoGun.enabled = false;
+            }
+            else
+            {
+                pauseMenu.SetActive(false);
+                firstPersonLook.enabled = true;
+                potatoGun.enabled = true;
+            }
+
             if (pauseAudioSource != null)
             {
                 if (isPaused)
                 {
-                    SoundManager.Instance.bgmMusicManager.Pause();
-                    pauseAudioSource.Play();
+                    SoundManager.Instance.bgmMusicManager.volume = 0.1f;
+                    //pauseAudioSource.Play();
                 }
                 else
                 {
-                    pauseAudioSource.Stop();
-                    SoundManager.Instance.bgmMusicManager.UnPause();
+                    //pauseAudioSource.Stop();
+                    SoundManager.Instance.bgmMusicManager.volume = 0.3f;
                 }
             }
 
@@ -63,10 +92,9 @@ public class GameEventManager : MonoBehaviour
 
             if (useFindObjectPause && isPaused)
             {
-                //GetObjectsToPause();
-                //StartCoroutine(PauseGameObjects());
+                GetObjectsToPause();
+                StartCoroutine(PauseGameObjects());
             }
-            
         }
 
         if (Input.GetButtonDown("Quit") && !areControlsLocked)
