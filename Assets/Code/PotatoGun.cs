@@ -20,7 +20,7 @@ public class PotatoGun : MonoBehaviour
     bool isPlayingSpraySound;
     public AudioSource spraySound;
     public AudioSource ammoSwitchSound;
-    public AudioSource potatoShootSound;
+    
     public AudioSource flashlightSound;
     float initalZPosition;
     public Rigidbody fpsRigidBody;
@@ -115,8 +115,6 @@ public class PotatoGun : MonoBehaviour
         print("fpsRigidBody.velocity" + fpsRigidBody.velocity);
         newTato.GetComponent<Rigidbody>().AddForce((tatoSpawnPoint.forward * launchSpeed) + (fpsRigidBody.velocity * 30));
         Destroy(newTato,5);
-        potatoShootSound.pitch = Random.Range(0.92f, 1.08f);
-        potatoShootSound.Play();
         Recoil();
     }
     void SwitchPesticideUp()
@@ -166,5 +164,10 @@ public class PotatoGun : MonoBehaviour
         gunModel.transform.DOLocalMoveZ(initalZPosition - .03f, recoilDuration, false);//.SetEase(Ease.InOutCirc);
         yield return new WaitForSeconds(recoilDuration);
         gunModel.transform.DOLocalMoveZ(initalZPosition, recoilDuration * 2, false);//.SetEase(Ease.InOutQuad);
+    }
+
+    void PlayShootPotatoSound()
+    {
+
     }
 }
